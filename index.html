@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>Bitsy Mixtape</title>
+
+		<meta charset='utf-8'>
+
+		<script src="mixtape.js"></script>
+
+		<style>
+			html, body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				background: white;
+				font-family: "Nunito";
+			}
+
+			#select_screen {
+				width: 100%;
+				height: 100%;
+				/*display: none;*/
+				transition: background 1s, color 1s;
+			}
+
+			#top_bar {
+				width: calc(100% - 20px);
+				padding: 10px;
+				height: calc(7% - 20px);
+				background: black;
+				color: white;
+				/*text-align: center;*/
+				display: flex;
+				flex-flow: horizontal;
+			}
+
+			#game_select {
+				width: 65%;
+				height: 90%;
+				/*background: red;*/
+				overflow: scroll;
+				float: left;
+				white-space: normal;
+			}
+
+			#game_info {
+				width: calc(35% - 60px);
+				height: calc(90% - 30px);
+				padding: 30px;
+				padding-top: 0px;
+				overflow: scroll;
+				float:right;
+				/*background: blue;*/
+			}
+
+			#play_screen {
+				width: 100%;
+				height: 100%;
+				color: white;
+				display: none;
+			}
+
+			#game_frame {
+				width: 100%;
+				height: 90%;
+				border: 0;
+				margin: 0;
+				position: absolute;
+				top: 0;
+			}
+
+			#play_control {
+				padding: 15px;
+				width: calc(100% - 30px);
+				height: calc(10% - 32px);
+				background: black;
+				margin: 0;
+				display: flex;
+				flex-flow: horizontal;
+				border-top: solid 2px white;
+			}
+
+			.game_card {
+				background: black;
+				color: white;
+				display: inline-block;
+				width: 150px;
+				height: 200px;
+				padding: 10px;
+				margin: 10px;
+				border: solid 2px black;
+				outline: solid 4px black;
+				vertical-align: bottom;
+			}
+
+			.game_card:hover {
+				background: white;
+				color: black;
+				border: solid 2px white;
+				outline: solid 4px white;
+			}
+
+			.game_card h4 {
+				margin-top: 5px;
+			}
+
+			.selected_card {
+				border: solid 2px white;
+			}
+
+			.selected_card:hover {
+				border: solid 2px black;
+			}
+
+			#loading {
+				width: 100%;
+				height: 50vh;
+				border: 0;
+				margin: 0;
+				color: black;
+				text-align: center;
+				padding-top: 40vh;
+				font-size: 30px;
+			}
+
+			button {
+				background: black;
+				color: white;
+				border: solid 1px white;
+			}
+
+			button:hover {
+				background: white;
+				color: black;
+			}
+
+			button .material-icons {
+				font-size: 18px;
+				vertical-align: middle;
+				line-height: 100%;
+			}
+
+			#game_info_play_button {
+				width: 300px;
+				margin-top: 10px;
+				margin-left: 20px;
+				margin-right: 20px;
+				padding: 5px;
+				font-size: 20px;
+			}
+
+			#game_info_title {
+				margin-bottom: 0px;
+			}
+
+			#game_info_author {
+				margin-top: 0px;
+			}
+
+			#play_title {
+				font-weight: bold;
+				font-size: 20px;
+				padding-right: 15px;
+			}
+
+			a {
+				color: black;
+			}
+
+			#about_bitsy {
+				position: absolute;
+				background: black;
+				color: white;
+				margin: 10%;
+				padding: 5%;
+			}
+		</style>
+
+		<link href="style/gameStyles.css" rel="stylesheet">
+
+		<!-- FONTS -->
+		<link href="style/googleNunito.css" rel="stylesheet">
+		<link href="style/googleMaterialIcons.css" rel="stylesheet">
+
+	</head>
+
+	<body onload="start();">
+		<div id="select_screen">
+			<div id="top_bar">
+				<div style="flex:1;">
+					<button onclick="document.getElementById('about_bitsy').style.display='block';">about bitsy</button>
+				</div>
+				<div style="flex:2;text-align:center;">
+					Bitsy Mixtape @ Indie Bits
+				</div>
+				<div style="flex:1;">
+					<button onclick="playRandomGame();" style="float:right;">
+						<i class="material-icons">shuffle</i>
+						play random
+					</button>
+				</div>
+			</div>
+			<div id="game_select">
+			</div>
+			<div id="game_info">
+				<h2 id="game_info_title"></h2>
+				<h3 id="game_info_author"></h3>
+				<img id="game_info_img" width="350px" height="350px"></img>
+				<br/>
+				<button id="game_info_play_button">
+					<i class="material-icons">play_arrow</i>
+					play!
+				</button>
+				<p id="game_info_blurb"></p>
+				<a id="game_info_portfolio_link">
+					More by 
+					<span id="game_info_portfolio_author"/>
+				</a>
+			</div>
+			<div id="about_bitsy" style="display:none;" onclick="document.getElementById('about_bitsy').style.display='none';">
+				Bitsy is a tiny game engine for making little games, world, and stories.
+				When I made it, I chose limits - the 8x8 pixel art, the interactivity
+				limited to walking and talking - that help keep the focus on making a story, 
+				but I never could have predicted all the creative ways folks would turn
+				those limits inside out. Hundreds of games have been made with Bitsy, so
+				it was hard to choose only a small number for this mixtape, but my goal
+				was to choose games with a wide range of stories, protagonists, moods,
+				and storytelling techniques.
+				<br/><br/>
+				I hope you enjoy discovering the games in this mixtape as much as I have!
+				If you feel inspired you can also try making a game with Bitsy right here.
+				(No coding is required: just a little writing and drawing!)
+				<br/><br/>
+				- Adam
+				<br/><br/>
+				<button><i class="material-icons">clear</i>close</button>
+			</div>
+		</div>
+
+		<div id="play_screen">
+			<div id="loading">
+				loading
+			</div>
+			<iframe id="game_frame" src=""></iframe>
+			<div id="play_control">
+				<div style="flex:1;">
+					<button id="play_exit_button">
+						<i class="material-icons">clear</i>
+						exit
+					</button>
+					<button id="play_restart_button">
+						<i class="material-icons">refresh</i>
+						restart
+					</button>
+				</div>
+				<div style="flex:1;text-align:center;">
+					<span id="play_title"></span>
+					<span id="play_author"></span>
+				</div>
+				<div style="flex:1;text-align:right;">
+					<button id="play_random_button">
+						<i class="material-icons">shuffle</i>
+						play random
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

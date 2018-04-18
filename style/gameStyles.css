@@ -1,0 +1,82 @@
+.castle_island {
+	background: #1c96f0;
+	color: #c6ffff;
+}
+
+.cats_out_of_the_bag {
+	background: #fff;
+	color: #c70000;
+}
+
+.day_in_the_life {
+	background: #321d89;
+	color: #fff;
+}
+
+.human_palace {
+	background: #f5d6f2;
+	/*color: #5a9ee2;*/
+	color: rgb(242,87,153);
+}
+
+.junk_shop_telescope {
+	background: #00183e;
+	color: #c4c6ce;
+}
+
+.little_duck {
+	background: #000;
+	color: #fff;
+}
+
+.mailfrog {
+	background: #96c936;
+	color: #64868c;
+}
+
+.milk_mitten {
+	background: rgb(255,218,191);
+	color: rgb(232,128,135);
+}
+
+.no_destination {
+	background: rgb(67,47,91);
+	color: rgb(180,252,190);
+}
+
+.onion_detective {
+	background: rgb(255,186,204);
+	color: rgb(2,158,254);
+}
+
+.slow_growing {
+	background: rgb(68,166,122);
+	color: rgb(52,103,98);
+}
+
+.slug_life {
+	background: rgb(154,112,154);
+	color: rgb(254,187,250);
+}
+
+.the_exile {
+	background: rgb(252,236,188);
+	/*color: rgb(251,193,115);*/
+	color : rgb(235,91,5);
+}
+
+.tower_night {
+	color: rgb(0,0,0);
+	/*background: rgb(255,81,85);*/
+	background: rgb(117,43,125);
+}
+
+.worm_dungeon {
+	background: rgb(112,44,74);
+	color: #fff; /*rgb(166,84,95);*/
+}
+
+.moth {
+	background: rgb(157,215,198);
+	color: rgb(88,89,74);
+}
